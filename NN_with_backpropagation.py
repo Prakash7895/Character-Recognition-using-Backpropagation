@@ -30,7 +30,7 @@ def target(i,label):
 	else:
 		return 0
 
-#load the images from folder directory and writes the pixel value alongwith the label to a text file(Input_to_NNN.txt)
+#load the images from folder directory and writes the pixel value alongwith the label to a text file(Input_to_NN.txt)
 
 #The given link(http://www.ee.surrey.ac.uk/CVSSP/demos/chars74k/EnglishHnd.tgz) contain images of size 1200x900, 
 #so to reduce size to 30x30, set fx=40 and fy=30 in function load_images(folder) below.
