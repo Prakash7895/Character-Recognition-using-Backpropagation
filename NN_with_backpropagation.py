@@ -106,7 +106,7 @@ if(flag==False):
 	while(epoch <= epochS):
 		print("EPOCH : ",epoch)
 		#in each epoch it asks user to either increase epochS or not. if user does not reply it increases the epochS
-		if(epoch>=0 and epoch==epochS-1):
+		if(epoch>=0 and epoch==epochS):
 			print("You have five seconds to answer!")
 			print("Enter 'N' or 'n' to stop epochs here else 'Y' or 'y' : ")
 			i, o, e = select.select( [sys.stdin], [], [], 5 )
@@ -136,15 +136,13 @@ if(flag==False):
 					s=hiddenbias
 					for j in range(i_p):
 						s=s+innerWeights[i][j]*inputLayer[j]
-					s=float("{0:.15f}".format(s))
-					hiddenLayer[i]=float("{0:.15f}".format((sigm(s))))
+					hiddenLayer[i]=sigm(s)
 					
 				for i in range(o_p):
 					s=outputbias
 					for j in range(hidden):
 						s=s+outerWeights[i][j]*hiddenLayer[j]
-						s=float("{0:.15f}".format(s))
-					outputLayer[i]=float("{0:.15f}".format((sigm(s))))
+					outputLayer[i]=sigm(s)
 
 				error=0.0
 
@@ -284,14 +282,12 @@ for f in os.listdir(home):
 		s=hiddenbias
 		for j in range(i_p):
 			s=s+innerWeights[i][j]*inputLayer[j]
-		s=float("{0:.15f}".format(s))
-		hiddenLayer[i]=float("{0:.15f}".format((sigm(s))))
+		hiddenLayer[i]=sigm(s)
 
 	for i in range(o_p):
 		s=outputbias
 		for j in range(hidden):
 			s=s+outerWeights[i][j]*hiddenLayer[j]
-			s=float("{0:.15f}".format(s))
-		outputLayer[i]=float("{0:.15f}".format((sigm(s))))
+		outputLayer[i]=sigm(s)
 
 	print("FileName : ",f," Character : ",OutPut[outputLayer.index(max(outputLayer))]," Value : ",max(outputLayer))
